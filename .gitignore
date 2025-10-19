@@ -1,0 +1,80 @@
+# Cache directories
+*/Cache/
+*/cache/
+*/CachedData/
+*/CachedExtensionVSIXs/
+*/CachedProfilesData/
+*/Code Cache/
+*/GPUCache/
+*/DawnGraphiteCache/
+*/DawnWebGPUCache/
+
+# Storage and databases
+*/Local Storage/
+*/Session Storage/
+*/Shared Dictionary/
+*/SharedStorage
+*/SharedStorage-wal
+*/blob_storage/
+*.vscdb
+*.db
+*.db-journal
+
+autostart/
+Cursor/
+
+
+# Logs
+*/logs/
+*.log
+fish/
+discord/
+.dmenurc
+pavucontrol.ini
+
+micro/
+# Cookies and browser data
+*/Cookies
+*/Cookies-journal
+
+# Crash reports
+*/Crashpad/
+
+# Locks and temporary files
+*.lock
+code.lock
+
+# User data and history
+*/History/
+*/userDataCache.json
+*/Trust Tokens
+*/Trust Tokens-journal
+*/TransportSecurity
+*/Network Persistent State
+*/VideoDecodeStats/
+*/WebStorage/
+*/Preferences
+*/DIPS
+
+# Sentry and telemetry
+*/sentry/
+*/telemetry/
+
+# Electron specific
+Electron/
+
+# Application specific ignores
+Cursor/Backups/
+Cursor/Cache/
+Cursor/logs/
+discord/Cache/
+discord/logs/
+discord/Service Worker/
+go/telemetry/
+
+# Pulse audio
+pulse/cookie
+
+# dconf
+dconf/user
+
