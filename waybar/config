@@ -16,9 +16,7 @@
     "spacing": 5, // Gaps between modules (4px)
 
     "modules-left": [
-        //"custom/rofi",
         "hyprland/workspaces",
-        //"hyprland/submap",
         "custom/system-info",
         //"idle_inhibitor",
         //"mpd"
@@ -26,15 +24,12 @@
     ],
     "modules-center": [
         //"hyprland/window"
-        "clock#date",
-        "custom/weather"
+        "clock#date"
         //"custom/gammastep"
     ],
     "modules-right": [
-        //"backlight",
-        "wireplumber",
-        //"custom/screenshot_t",
-        "tray"
+        "tray",
+        "wireplumber"
         //"custom/power"
     ],
 
@@ -198,24 +193,8 @@
     "on-scroll-down": "playerctl previous"
 },
 
-    "custom/media": {
-        "format": "{0} {1}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        //"exec": "~/.config/waybar/mediaplayer.py" // Script in resources folder
-        // "exec": "~/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
 
-    "custom/power": {
-        "format": " 󰐥 ",
-        "tooltip": false,
-        "on-click": "wlogout"
-    },
+    
 
     "clock": {
         "format": "  {:%H:%M   %e %b}",
@@ -224,7 +203,8 @@
     },
 
     "clock#date": {
-        "format": "󰥔  {:%H:%M \n %e %b}",
+        "interval": 1,
+        "format": "󰥔  {:%H:%M:%S}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
     },
@@ -232,11 +212,7 @@
     "custom/gammastep": {
       "interval": 5,
       "return-type": "json",
-      "exec": {
-        "pre": "if unit_status=\"$(systemctl --user is-active gammastep)\"; then\nstatus=\"$unit_status ($(journalctl --user -u gammastep.service -g 'Period: ' | tail -1 | cut -d ':' -f6 | xargs))\"\nelse\nstatus=\"$unit_status\"\nfi",
-        "alt": "${status:-inactive}",
-        "tooltip": "Gammastep is $status",
-      },
+      "exec": "if unit_status=\\\"$(systemctl --user is-active gammastep)\\\"; then status=\\\"$unit_status ($(journalctl --user -u gammastep.service -g 'Period: ' | tail -1 | cut -d ':' -f6 | xargs))\\\"; else status=\\\"$unit_status\\\"; fi; echo \\\"{\\\\\\\"text\\\\\\\":\\\\\\\"\\\\\\\", \\\\\\\"alt\\\\\\\":\\\\\\\"${status:-inactive}\\\\\\\", \\\\\\\"tooltip\\\\\\\":\\\\\\\"Gammastep is $status\\\\\\\"}\\\"\"",
       "format": "{icon}",
       "format-icons": {
         "activating": "󰁪 ",
@@ -251,7 +227,7 @@
         "active (Transition (Day)": " ",
         "active (Transition (Daytime)": " ",
       },
-      "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep",
+      "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep"
     },
 
     "cpu": {
@@ -313,12 +289,12 @@
             "7": "七",
             "8": "八",
             "9": "九",
-            "10": "十",
+            "10": "十"
         },
         "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
         "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
         "sort-by-number": true,
-        "active-only": false,
+        "active-only": false
     },
 
     "hyprland/window": {
@@ -369,11 +345,11 @@
             "portable": " ",
             "car": " ",
             "default": [" ", " ", " "]
-        },
+        }
     },
 
     "tray": {
-        "icon-size": 15,
-        "spacing": 5
+        "icon-size": 21,
+        "spacing": 10
     }
 }

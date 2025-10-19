@@ -6,4 +6,10 @@ mode=drun
 columns=2
 width=800
 height=500
+insensitive=true
+key_up=Up
+key_down=Down
+key_left=Left
+key_right=Right
+matching=fuzzy
 --show
